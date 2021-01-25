@@ -12,8 +12,13 @@ let eightSpot = document.getElementById('eight');
 let nineSpot = document.getElementById('nine');
 
 // grabs the winner announcement
-let winner = document.getElementById('winner');
-console.log(winner);
+// put this in a function when the winner is known
+// let winner = document.getElementById('winner');
+// let html = `<h1 class="display-2 text-center text-secondary">
+// Player X is the winner!
+// </h1>`
+// winner.innerHTML += html;
+
 
 // state, keeps track of what the last player letter
 let turn = { letter: 'O' }
@@ -40,7 +45,6 @@ const player = function (letter) {
 
 }
 
-// need a function that fills in X's and O's in the matrix
 // the function should check if all spots are filled
 // if all spots are filled then return the winner
 // may have to create other function that tests the winner

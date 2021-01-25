@@ -1,0 +1,62 @@
+/* using Google Fonts */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* game table */
+.table {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  justify-content: center;
+}
+
+/* inside spots of grid */
+.spot {
+  padding: 35px 0;
+  text-align: center;
+}
+/* each portion of the grid */
+#one, #four, #five {
+  border-right: solid;
+  border-bottom: solid;
+}
+
+#two {
+  border-right: solid;
+  border-bottom: solid;
+}
+
+#three, #six {
+  border-bottom: solid;
+}
+
+#seven, #eight {
+  border-right: solid;
+}
+
+/* title on top of webpage */
+#title {
+  color: #229bbf;
+  font-size: 55px;
+  text-align: center;
+}
+
+/* button to reset game */
+#button {
+  background-color: #229bbf;
+  color: white;
+  margin: 0 auto;
+  display: block;
+  width: 1000px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+}
+
+/* winner announcement */
+#announcement {
+  color: #6c757d;
+  text-align: center;
+  font-size: 60px;
+}

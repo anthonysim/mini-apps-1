@@ -6,74 +6,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
+  <!-- Links to styles.css -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Tab Title -->
   <title>Tic-Tac-Toe Mini App 1</title>
 </head>
 
 <body>
 
   <!-- Title on top of webpage -->
-  <section class="text-center">
-    <h1 class="display-4 text-info">Tic-Tac-Toe</h1>
-  </section>
+  <h1 id="title">Tic-Tac-Toe</h1>
+
 
   <!-- New Game Reset Button -->
-  <section>
-    <button onClick="window.location.reload()" id="newGameButton" type="button"
-      class="btn btn-block btn-info btn-lg my-4">New
-      Game</button>
-  </section>
+  <button id="button">New Game</button>
+  <br>
+  <br>
 
   <!-- Game Table -->
-  <section class="m-5">
-    <div class="container">
-      <div class="row text-center justify-content-center" style="height:75px">
-        <div id="one" class="col-2 border-bottom border-right p-4"></div>
-        <div id="two" class="col-2 border-bottom border-right p-4"></div>
-        <div id="three" class="col-2 border-bottom p-4"></div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row text-center justify-content-center" style="height:75px">
-        <div id="four" class="col-2 border-bottom border-right p-4"></div>
-        <div id="five" class="col-2 border-bottom border-right p-4"></div>
-        <div id="six" class="col-2 border-bottom p-4"></div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row text-center justify-content-center" style="height:75px">
-        <div id="seven" class="col-2 border-right p-4"></div>
-        <div id="eight" class="col-2 border-right p-4"></div>
-        <div id="nine" class="col-2 p-4">
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="table">
+    <div id="one" class="spot">1</div>
+    <div id="two" class="spot">2</div>
+    <div id="three" class="spot">3</div>
+    <div id="four" class="spot">4</div>
+    <div id="five" class="spot">5</div>
+    <div id="six" class="spot">6</div>
+    <div id="seven" class="spot">7</div>
+    <div id="eight" class="spot">8</div>
+    <div id="nine" class="spot">9</div>
+  </div>
 
   <!-- Winner Announcement -->
-  <section>
-    <div id="winner">
-      <h1 class="display-2 text-center text-secondary">
-        Player X is the winner!
-      </h1>
-    </div>
-  </section>
+  <div id="winner">
+    <h1 id="announcement">Player X is the winner!</h1>
+  </div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript Link -->
   <script src="app.js"></script>
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
