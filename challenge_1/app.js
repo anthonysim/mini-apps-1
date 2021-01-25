@@ -45,8 +45,9 @@ const player = function (letter) {
 // if all spots are filled then return the winner
 // may have to create other function that tests the winner
 
-// also side note, need to make sure once a click is none you
-// can't change it.
+// horizontal tests for X's and O's
+// vertical tests for X's and O's
+// diagonal tests for X's and O's
 
 // event listeners when board is clicked
 oneSpot.addEventListener('click', (e) => {
