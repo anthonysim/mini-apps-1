@@ -1,6 +1,6 @@
 // console.log('%c If you see this in your console, the script is connected to your html page!', 'background: #222; color: #bada55');
 
-// grabs the locations of the board
+// grabs the locations on the board
 let oneSpot = document.getElementById('one');
 let twoSpot = document.getElementById('two');
 let threeSpot = document.getElementById('three');
@@ -13,8 +13,9 @@ let nineSpot = document.getElementById('nine');
 
 
 // event listeners when board is clicked
-oneSpot.addEventListener('click', () => {
-  console.log('one spot is clicked!')
+oneSpot.addEventListener('click', (e) => {
+  e.target.innerText = 'X';
+  console.log(e.target.innerText);
 })
 
 twoSpot.addEventListener('click', () => {
