@@ -22,7 +22,9 @@
 
   <!-- New Game Reset Button -->
   <section>
-    <button id="newGameButton" type="button" class="btn btn-block btn-info btn-lg my-4">New Game</button>
+    <button onClick="window.location.reload()" id="newGameButton" type="button"
+      class="btn btn-block btn-info btn-lg my-4">New
+      Game</button>
   </section>
 
   <!-- Game Table -->
@@ -49,29 +51,16 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="row justify-content-center"> -->
-    <!-- table table-bordered  -->
-    <!-- <table class="mt-5" style="width:450px; height: 250px;">
-        <tr class="text-center">
-          <td id="one" class="border border-right text-dark"></td>
-          <td id="two" class="border border-right text-dark"></td>
-          <td id="three" class="border text-dark"></td>
-        </tr>
-        <tr class="text-center">
-          <td id="four" class="border border-right text-dark"></td>
-          <td id="five" class="border border-right text-dark"></td>
-          <td id="six" class="border text-dark"></td>
-        </tr>
-        <tr class="text-center">
-          <td id="seven" class="border-right text-dark"></td>
-          <td id="eight" class="border-right text-dark"></td>
-          <td id="nine" class="text-dark"></td>
-        </tr>
-      </table> -->
-    <!-- </div> -->
   </section>
 
+  <!-- Winner Announcement -->
+  <section>
+    <div id="winner">
+      <h1 class="display-2 text-center text-secondary">
+        Player X is the winner!
+      </h1>
+    </div>
+  </section>
 
   <!-- JavaScript -->
   <script src="app.js"></script>

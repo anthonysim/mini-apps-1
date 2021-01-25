@@ -1,8 +1,5 @@
 console.log('%c script is connected to your html page!', 'background: #222; color: #bada55');
 
-// grabs button to reset to new game
-let newGameButton = document.getElementById('newGameButton');
-
 // grabs the locations on the board
 let oneSpot = document.getElementById('one');
 let twoSpot = document.getElementById('two');
@@ -13,6 +10,10 @@ let sixSpot = document.getElementById('six');
 let sevenSpot = document.getElementById('seven');
 let eightSpot = document.getElementById('eight');
 let nineSpot = document.getElementById('nine');
+
+// grabs the winner announcement
+let winner = document.getElementById('winner');
+console.log(winner);
 
 // state, keeps track of what the last player letter
 let turn = { letter: 'O' }
@@ -28,14 +29,15 @@ let matrix = [
 const player = function (letter) {
   if (turn.letter === 'O') {
     turn.letter = 'X';
+    console.log(matrix)
     return 'X';
 
   } else {
     turn.letter = 'O'
+    console.log(matrix)
     return 'O'
   }
 
-  return turn.letter;
 }
 
 // need a function that fills in X's and O's in the matrix
@@ -46,14 +48,6 @@ const player = function (letter) {
 // also side note, need to make sure once a click is none you
 // can't change it.
 
-
-
-// event listeners for new game reset button
-newGameButton.addEventListener('click', (e) => {
-  console.log('game reset!')
-})
-
-
 // event listeners when board is clicked
 oneSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
@@ -62,7 +56,6 @@ oneSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[0][0] = result;
   }
-  console.log(matrix)
 })
 
 twoSpot.addEventListener('click', (e) => {
@@ -72,7 +65,6 @@ twoSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[0][1] = result;
   }
-  console.log(matrix)
 })
 
 threeSpot.addEventListener('click', (e) => {
@@ -82,7 +74,6 @@ threeSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[0][2] = result;
   }
-  console.log(matrix)
 })
 
 fourSpot.addEventListener('click', (e) => {
@@ -101,7 +92,6 @@ fiveSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[1][1] = result;
   }
-  console.log(matrix)
 })
 
 sixSpot.addEventListener('click', (e) => {
@@ -111,7 +101,6 @@ sixSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[1][2] = result;
   }
-  console.log(matrix)
 })
 
 sevenSpot.addEventListener('click', (e) => {
@@ -121,7 +110,6 @@ sevenSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[2][0] = result;
   }
-  console.log(matrix)
 })
 
 eightSpot.addEventListener('click', (e) => {
@@ -131,7 +119,6 @@ eightSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[2][1] = result;
   }
-  console.log(matrix)
 })
 
 nineSpot.addEventListener('click', (e) => {
@@ -141,5 +128,4 @@ nineSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[2][2] = result;
   }
-  console.log(matrix)
 })
