@@ -1,5 +1,8 @@
 // console.log('%c If you see this in your console, the script is connected to your html page!', 'background: #222; color: #bada55');
 
+// grabs button to reset to new game
+let newGameButton = document.getElementById('newGameButton');
+
 // grabs the locations on the board
 let oneSpot = document.getElementById('one');
 let twoSpot = document.getElementById('two');
@@ -10,6 +13,12 @@ let sixSpot = document.getElementById('six');
 let sevenSpot = document.getElementById('seven');
 let eightSpot = document.getElementById('eight');
 let nineSpot = document.getElementById('nine');
+
+
+// event listeners for new game reset button
+newGameButton.addEventListener('click', (e) => {
+  console.log('button clicked!')
+})
 
 
 // event listeners when board is clicked
