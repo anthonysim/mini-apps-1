@@ -14,24 +14,25 @@ body {
 .spot {
   padding: 35px 0;
   text-align: center;
+  font-size: 30px;
 }
 /* each portion of the grid */
 #one, #four, #five {
-  border-right: solid;
-  border-bottom: solid;
+  border-right: solid #6c757d;
+  border-bottom: solid #6c757d;
 }
 
 #two {
-  border-right: solid;
-  border-bottom: solid;
+  border-right: solid #6c757d;
+  border-bottom: solid #6c757d;
 }
 
 #three, #six {
-  border-bottom: solid;
+  border-bottom: solid #6c757d;
 }
 
 #seven, #eight {
-  border-right: solid;
+  border-right: solid #6c757d;
 }
 
 /* title on top of webpage */
@@ -43,6 +44,7 @@ body {
 
 /* button to reset game */
 #button {
+  cursor: pointer;
   background-color: #229bbf;
   color: white;
   margin: 0 auto;
@@ -52,6 +54,12 @@ body {
   padding: 0;
   border: none;
   border-radius: 8px;
+  font-size: 20px;
+
+}
+/* button changes when hover over */
+#button:hover {
+  background-color: #67c8e6;
 }
 
 /* winner announcement */
