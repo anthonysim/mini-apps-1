@@ -15,35 +15,51 @@
 
 <body>
   <!-- Title of the game -->
-  <div class="text-center">
-    <h1 class="display-4">Tic-Tac-Toe Game</h1>
+  <section class="text-center">
+    <h1 class="display-4 text-info">Tic-Tac-Toe</h1>
+  </section>
 
-    <!-- Navbar with the New Game/Reset Button -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <!-- Navbar with the New Game/Reset Button -->
+  <section class="text-center mt-4">
+    <nav class="navbar navbar-expand-sm navbar-light bg-info">
       <span class="navbar-brand mb-0 h1"></span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <div class="collapse navbar-collapse justify-content-center">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">New Game<span class="sr-only">(current)</span></a>
-            <!-- </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link text-light" href="#">New Game<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li> -->
-            <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li> -->
         </ul>
       </div>
     </nav>
-  </div>
+  </section>
 
+  <!-- tic tac toe table -->
+  <section>
+    <div class="row justify-content-center">
+      <!-- table table-bordered  -->
+      <table class="mt-5" style="width:400px; height: 200px">
+        <tr class="text-center">
+          <td id="one" class="border-bottom border-right text-dark">X</td>
+          <td id="two" class="border-bottom border-right text-dark">X</td>
+          <td id="three" class="border-bottom text-dark">X</td>
+        </tr>
+        <tr class="text-center">
+          <td id="four" class="border-bottom border-right text-dark">X</td>
+          <td id="five" class="border-bottom border-right text-dark">X</td>
+          <td id="six" class="border-bottom text-dark">X</td>
+        </tr>
+        <tr class="text-center">
+          <td id="seven" class="border-right text-dark">X</td>
+          <td id="eight" class="border-right text-dark">X</td>
+          <td id="nine" class="text-dark">X</td>
+        </tr>
+      </table>
+    </div>
+  </section>
 
 
   <!-- Optional JavaScript -->
