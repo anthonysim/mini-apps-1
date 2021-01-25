@@ -14,7 +14,7 @@ body {
 .spot {
   padding: 35px 0;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
 }
 /* each portion of the grid */
 #one, #four, #five {
@@ -40,6 +40,7 @@ body {
   color: #229bbf;
   font-size: 55px;
   text-align: center;
+  margin: 0 auto;
 }
 
 /* button to reset game */
@@ -66,5 +67,5 @@ body {
 #announcement {
   color: #6c757d;
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
 }

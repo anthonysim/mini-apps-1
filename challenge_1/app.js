@@ -1,6 +1,13 @@
-console.log('%c script is connected to your html page!', 'background: #222; color: #bada55');
+// STATE
+let turn = { letter: 'O' }
 
-// grabs the locations on the board
+let matrix = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
+];
+
+// DOM GRABS SPOTS ON THE TABLE
 let oneSpot = document.getElementById('one');
 let twoSpot = document.getElementById('two');
 let threeSpot = document.getElementById('three');
@@ -11,26 +18,48 @@ let sevenSpot = document.getElementById('seven');
 let eightSpot = document.getElementById('eight');
 let nineSpot = document.getElementById('nine');
 
+// DOM GRABS NEW GAME RESET BUTTON
+let button = document.getElementById('button');
+
+
+// Function to determine winner!!!!!
 // grabs the winner announcement
-// put this in a function when the winner is known
 // let winner = document.getElementById('winner');
+
 // let html = `<h1 class="display-2 text-center text-secondary">
 // Player X is the winner!
 // </h1>`
 // winner.innerHTML += html;
 
 
-// state, keeps track of what the last player letter
-let turn = { letter: 'O' }
+// FUNC THAT RESETS GAME
+const gameReset = function (arr) {
+  for (let spot of arr) {
+    spot.innerText = ''
+  }
+}
 
-// matrix to keep track of all the X's and O's on the table
-let matrix = [
-  ['', '', ''],
-  ['', '', ''],
-  ['', '', '']
-];
 
-// function to keep trace of X's and O's
+// NEW GAME RESET
+button.addEventListener('click', () => {
+  matrix = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+  ];
+
+  let spots = [oneSpot, twoSpot, threeSpot, fourSpot, fiveSpot, sixSpot, sevenSpot, eightSpot, nineSpot];
+
+  gameReset(spots);
+
+  let winner = document.getElementById('winner');
+  winner.innerHTML = '';
+
+  console.log(matrix)
+})
+
+
+// FUNC SWITCHES B/T X's AND O's
 const player = function (letter) {
   if (turn.letter === 'O') {
     turn.letter = 'X';
@@ -45,15 +74,8 @@ const player = function (letter) {
 
 }
 
-// the function should check if all spots are filled
-// if all spots are filled then return the winner
-// may have to create other function that tests the winner
 
-// horizontal tests for X's and O's
-// vertical tests for X's and O's
-// diagonal tests for X's and O's
-
-// event listeners when board is clicked
+// EVENT LISTENERS CLICKING ON THE TABLE
 oneSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
