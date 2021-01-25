@@ -14,47 +14,107 @@ let sevenSpot = document.getElementById('seven');
 let eightSpot = document.getElementById('eight');
 let nineSpot = document.getElementById('nine');
 
+// state, keeps track of what the last player letter
+let turn = { letter: 'O' }
+
+// matrix to keep track of all the X's and O's on the table
+let matrix = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
+];
+
+// function to keep trace of X's and O's
+const player = function (letter) {
+  if (turn.letter === 'O') {
+    turn.letter = 'X';
+    return 'X';
+
+  } else {
+    turn.letter = 'O'
+    return 'O'
+  }
+
+  return turn.letter;
+}
+
+// need a function that fills in X's and O's in the matrix
+// the function should check if all spots are filled
+// if all spots are filled then return the winner
+// may have to create other function that tests the winner
+
+// also side note, need to make sure once a click is none you
+// can't change it.
+
+
 
 // event listeners for new game reset button
 newGameButton.addEventListener('click', (e) => {
-  console.log('button clicked!')
+  console.log('game reset!')
 })
 
 
 // event listeners when board is clicked
 oneSpot.addEventListener('click', (e) => {
-  e.target.innerText = 'X';
-  console.log(e.target.innerText);
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
+  console.log('yes')
 })
 
-twoSpot.addEventListener('click', () => {
-  console.log('two spot is clicked!')
+twoSpot.addEventListener('click', (e) => {
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
 })
 
-threeSpot.addEventListener('click', () => {
-  console.log('three spot is clicked!')
+threeSpot.addEventListener('click', (e) => {
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
 })
 
-fourSpot.addEventListener('click', () => {
-  console.log('four spot is clicked!')
+fourSpot.addEventListener('click', (e) => {
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
 })
 
-fiveSpot.addEventListener('click', () => {
-  console.log('five spot is clicked!')
+fiveSpot.addEventListener('click', (e) => {
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
 })
 
-sixSpot.addEventListener('click', () => {
-  console.log('six spot is clicked!')
+sixSpot.addEventListener('click', (e) => {
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
 })
 
-sevenSpot.addEventListener('click', () => {
-  console.log('seven spot is clicked!')
+sevenSpot.addEventListener('click', (e) => {
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
 })
 
-eightSpot.addEventListener('click', () => {
-  console.log('eight spot is clicked!')
+eightSpot.addEventListener('click', (e) => {
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
 })
 
-nineSpot.addEventListener('click', () => {
-  console.log('nine spot is clicked!')
+nineSpot.addEventListener('click', (e) => {
+  if (e.target.innerText === '') {
+    let result = player(turn);
+    e.target.innerText = result;
+  }
 })

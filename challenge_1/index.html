@@ -10,10 +10,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <title>Tic-Tac-Toe Game</title>
+  <title>Tic-Tac-Toe Mini App 1</title>
 </head>
 
 <body>
+
   <!-- Title on top of webpage -->
   <section class="text-center">
     <h1 class="display-4 text-info">Tic-Tac-Toe</h1>
@@ -21,35 +22,58 @@
 
   <!-- New Game Reset Button -->
   <section>
-    <button id="newGameButton" type="button" class="btn btn-block btn-info btn-lg mt-3">New Game</button>
+    <button id="newGameButton" type="button" class="btn btn-block btn-info btn-lg my-4">New Game</button>
   </section>
 
   <!-- Game Table -->
-  <section>
-    <div class="row justify-content-center">
-      <!-- table table-bordered  -->
-      <table class="mt-5" style="width:400px; height: 200px">
-        <tr class="text-center">
-          <td id="one" class="border-bottom border-right text-dark">X</td>
-          <td id="two" class="border-bottom border-right text-dark">X</td>
-          <td id="three" class="border-bottom text-dark">X</td>
-        </tr>
-        <tr class="text-center">
-          <td id="four" class="border-bottom border-right text-dark">X</td>
-          <td id="five" class="border-bottom border-right text-dark">X</td>
-          <td id="six" class="border-bottom text-dark">X</td>
-        </tr>
-        <tr class="text-center">
-          <td id="seven" class="border-right text-dark">X</td>
-          <td id="eight" class="border-right text-dark">X</td>
-          <td id="nine" class="text-dark">X</td>
-        </tr>
-      </table>
+  <section class="m-5">
+    <div class="container">
+      <div class="row text-center justify-content-center" style="height:75px">
+        <div id="one" class="col-2 border p-4"></div>
+        <div id="two" class="col-2 border p-4"></div>
+        <div id="three" class="col-2 border p-4"></div>
+      </div>
     </div>
+    <div class="container">
+      <div class="row text-center justify-content-center" style="height:75px">
+        <div id="four" class="col-2 border p-4"></div>
+        <div id="five" class="col-2 border p-4"></div>
+        <div id="six" class="col-2 border p-4"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row text-center justify-content-center" style="height:75px">
+        <div id="seven" class="col-2 border p-4"></div>
+        <div id="eight" class="col-2 border p-4"></div>
+        <div id="nine" class="col-2 border p-4">
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="row justify-content-center"> -->
+    <!-- table table-bordered  -->
+    <!-- <table class="mt-5" style="width:450px; height: 250px;">
+        <tr class="text-center">
+          <td id="one" class="border border-right text-dark"></td>
+          <td id="two" class="border border-right text-dark"></td>
+          <td id="three" class="border text-dark"></td>
+        </tr>
+        <tr class="text-center">
+          <td id="four" class="border border-right text-dark"></td>
+          <td id="five" class="border border-right text-dark"></td>
+          <td id="six" class="border text-dark"></td>
+        </tr>
+        <tr class="text-center">
+          <td id="seven" class="border-right text-dark"></td>
+          <td id="eight" class="border-right text-dark"></td>
+          <td id="nine" class="text-dark"></td>
+        </tr>
+      </table> -->
+    <!-- </div> -->
   </section>
 
 
-  <!-- Optional JavaScript -->
+  <!-- JavaScript -->
   <script src="app.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
