@@ -1,4 +1,4 @@
-// console.log('%c If you see this in your console, the script is connected to your html page!', 'background: #222; color: #bada55');
+console.log('%c script is connected to your html page!', 'background: #222; color: #bada55');
 
 // grabs button to reset to new game
 let newGameButton = document.getElementById('newGameButton');
@@ -58,63 +58,88 @@ newGameButton.addEventListener('click', (e) => {
 oneSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[0][0] = result;
   }
-  console.log('yes')
+  console.log(matrix)
 })
 
 twoSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[0][1] = result;
   }
+  console.log(matrix)
 })
 
 threeSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[0][2] = result;
   }
+  console.log(matrix)
 })
 
 fourSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[1][0] = result;
   }
 })
 
 fiveSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[1][1] = result;
   }
+  console.log(matrix)
 })
 
 sixSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[1][2] = result;
   }
+  console.log(matrix)
 })
 
 sevenSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[2][0] = result;
   }
+  console.log(matrix)
 })
 
 eightSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[2][1] = result;
   }
+  console.log(matrix)
 })
 
 nineSpot.addEventListener('click', (e) => {
   if (e.target.innerText === '') {
     let result = player(turn);
+
     e.target.innerText = result;
+    matrix[2][2] = result;
   }
+  console.log(matrix)
 })
