@@ -6,13 +6,14 @@ body {
 /* game table */
 .table {
   display: grid;
-  grid-template-columns: 200px 200px 200px;
+  grid-template-columns: 150px 150px 150px;
   justify-content: center;
 }
 
 /* inside spots of grid */
 .spot {
-  padding: 35px 0;
+  cursor: default;
+  padding: 35px;
   text-align: center;
   font-size: 20px;
 }
