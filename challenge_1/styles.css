@@ -4,7 +4,7 @@ body {
 }
 
 /* game table */
-.table {
+#table {
   display: grid;
   grid-template-columns: 150px 150px 150px;
   justify-content: center;

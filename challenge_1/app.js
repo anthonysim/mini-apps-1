@@ -1,5 +1,5 @@
 // STATE
-let turn = { letter: 'O', count: 0 }
+let turn = { letter: 'O', prevLetter: 'X', count: 0 }
 
 let matrix = [
   ['', '', ''],
@@ -7,6 +7,8 @@ let matrix = [
   ['', '', '']
 ];
 
+// DOM GRABS TABLE
+let table = document.getElementById('table');
 
 // DOM GRABS WINNER ANNOUNCEMENT
 let winner = document.getElementById('winner');
@@ -29,14 +31,7 @@ let button = document.getElementById('button');
 // Function to determine winner!!!!!
 // need to initiate if there are 5 or more X + Os combined total
 
-// FUNC DETERMINE WINNER!!!!
-const gameWinner = function () {
 
-
-
-  // let html = `<h1 id="announcement">Player X is the winner!</h1>`
-  // winner.innerHTML += html;
-}
 
 
 // FUNC THAT RESETS GAME
@@ -50,16 +45,45 @@ const gameReset = function (arr) {
 // FUNC SWITCHES B/T X's AND O's
 const player = function (turn) {
   if (turn.letter === 'O') {
+    turn.prevLetter = 'X'
     turn.letter = 'X';
     console.log(matrix)
     return 'X';
 
   } else {
+    turn.prevLetter = 'O'
     turn.letter = 'O'
     console.log(matrix)
     return 'O'
   }
 }
+
+// FUNC DETERMINE WINNER!!!!
+// Tests all rows for 3 way match
+const rowTest = function (arr) {
+  for (let set of arr) {
+    let X = set.every((item) => item === 'X');
+    let O = set.every((item) => item === 'O');
+
+    if (X) {
+      return 'X';
+    }
+    if (O) {
+      return 'O';
+    }
+  }
+  return false;
+};
+
+// Tests diagonal from left to right
+
+table.addEventListener('click', () => {
+  let row = rowTest(matrix);
+  if (row) {
+    let html = `<h1 id="announcement">Player ${turn.prevLetter} is the winner!</h1>`;
+    winner.innerHTML += html;
+  }
+})
 
 
 // NEW GAME RESET
@@ -71,15 +95,11 @@ button.addEventListener('click', () => {
   ];
 
   let spots = [oneSpot, twoSpot, threeSpot, fourSpot, fiveSpot, sixSpot, sevenSpot, eightSpot, nineSpot];
-
   gameReset(spots);
-
   winner.innerHTML = '';
-
   turn.letter = 'O'
   turn.count = 0;
-
-  console.log(matrix)
+  console.log(matrix);
 })
 
 
@@ -92,10 +112,6 @@ oneSpot.addEventListener('click', (e) => {
     matrix[0][0] = result;
     turn.count += 1;
   }
-
-  if (turn.count >= 5) {
-    console.log('greater than 5')
-  }
 })
 
 twoSpot.addEventListener('click', (e) => {
@@ -105,10 +121,6 @@ twoSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[0][1] = result;
     turn.count += 1;
-  }
-
-  if (turn.count >= 5) {
-    console.log('greater than 5')
   }
 })
 
@@ -120,10 +132,6 @@ threeSpot.addEventListener('click', (e) => {
     matrix[0][2] = result;
     turn.count += 1;
   }
-
-  if (turn.count >= 5) {
-    console.log('greater than 5')
-  }
 })
 
 fourSpot.addEventListener('click', (e) => {
@@ -133,10 +141,6 @@ fourSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[1][0] = result;
     turn.count += 1;
-  }
-
-  if (turn.count >= 5) {
-    console.log('greater than 5')
   }
 })
 
@@ -148,10 +152,6 @@ fiveSpot.addEventListener('click', (e) => {
     matrix[1][1] = result;
     turn.count += 1;
   }
-
-  if (turn.count >= 5) {
-    console.log('greater than 5')
-  }
 })
 
 sixSpot.addEventListener('click', (e) => {
@@ -161,10 +161,6 @@ sixSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[1][2] = result;
     turn.count += 1;
-  }
-
-  if (turn.count >= 5) {
-    console.log('greater than 5')
   }
 })
 
@@ -177,9 +173,6 @@ sevenSpot.addEventListener('click', (e) => {
     turn.count += 1;
   }
 
-  if (turn.count >= 5) {
-    console.log('greater than 5')
-  }
 })
 
 eightSpot.addEventListener('click', (e) => {
@@ -190,10 +183,6 @@ eightSpot.addEventListener('click', (e) => {
     matrix[2][1] = result;
     turn.count += 1;
   }
-
-  if (turn.count >= 5) {
-    console.log('greater than 5')
-  }
 })
 
 nineSpot.addEventListener('click', (e) => {
@@ -203,10 +192,6 @@ nineSpot.addEventListener('click', (e) => {
     e.target.innerText = result;
     matrix[2][2] = result;
     turn.count += 1;
-  }
-
-  if (turn.count >= 5) {
-    console.log('greater than 5')
   }
 })
 
@@ -262,23 +247,8 @@ nineSpot.addEventListener('click', (e) => {
 //   return false;
 // };
 
-// let matrix = [
-//   ["", "", ""],
-//   ["", "", ""],
-//   ["", "", ""]
-// ];
 
-//rows
-// console.log(gameWinner(matrix, 'X', threeSetTest))
-// console.log(gameWinner(matrix, 'Y', threeSetTest))
 
-// diag
-// console.log(gameWinner(matrix, "X", everyDiagTest));
-// console.log(gameWinner(matrix, 'Y', everyDiagTest))
-
-//col
-// console.log(gameWinner(matrix, 'X', everyColTest))
-// console.log(gameWinner(matrix, 'Y', everyColTest))
 
 
 
