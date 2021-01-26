@@ -70,3 +70,13 @@ body {
   text-align: center;
   font-size: 40px;
 }
+
+#warning {
+  color: #6c757d;
+  text-align: center;
+  font-size: 15px;
+}
+
+.white {
+  color: white;
+}

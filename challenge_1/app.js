@@ -24,6 +24,8 @@ let sevenSpot = document.getElementById('seven');
 let eightSpot = document.getElementById('eight');
 let nineSpot = document.getElementById('nine');
 
+let spots = [oneSpot, twoSpot, threeSpot, fourSpot, fiveSpot, sixSpot, sevenSpot, eightSpot, nineSpot];
+
 // DOM GRABS NEW GAME RESET BUTTON
 let button = document.getElementById('button');
 
@@ -31,6 +33,7 @@ let button = document.getElementById('button');
 const gameReset = function (arr) {
   for (let spot of arr) {
     spot.innerText = ''
+    spot.classList.remove('white');
   }
 }
 
@@ -39,13 +42,13 @@ const player = function (turn) {
   if (turn.letter === 'O') {
     turn.prevLetter = 'X'
     turn.letter = 'X';
-    console.log(matrix)
+    // console.log(matrix)
     return 'X';
 
   } else {
     turn.prevLetter = 'O'
     turn.letter = 'O'
-    console.log(matrix)
+    // console.log(matrix)
     return 'O'
   }
 }
@@ -147,15 +150,34 @@ const colTest = function (arr) {
   return false;
 }
 
+
 // TESTS WHO THE WINNER IS X OR O?!?!?!?
 table.addEventListener('click', () => {
   let row = rowTest(matrix);
   let leftToRight = diagLeftToRightTest(matrix);
   let RightToLeft = diagRightToLeftTest(matrix);
-  let col = colTest(matrix);
+  let column = colTest(matrix);
 
-  if (row || leftToRight || RightToLeft || col) {
-    let html = `<h1 id="announcement">Player ${turn.prevLetter} is the winner!</h1>`;
+  if (row || leftToRight || RightToLeft || column) {
+    winner.innerText = '';
+    let html = `<h1 id="announcement">Player ${turn.prevLetter} is the winner!</h1><p id="warning">Please press New Game Button to play again!</p>`;
+    winner.innerHTML += html;
+
+    for (let spot of spots) {
+      if (spot.innerText === '') {
+        spot.innerText = 'gameover';
+        spot.classList.add('white');
+      }
+    }
+  }
+
+  let row1 = matrix[0].includes('');
+  let row2 = matrix[1].includes('');
+  let row3 = matrix[2].includes('');
+
+  if (!row && !leftToRight && !RightToLeft && !column && !row1 && !row2 && !row3) {
+    winner.innerText = '';
+    let html = `<h1 id="announcement">Tie! No winner!</h1>`;
     winner.innerHTML += html;
   }
 })
@@ -168,7 +190,7 @@ button.addEventListener('click', () => {
     ['', '', '']
   ];
 
-  let spots = [oneSpot, twoSpot, threeSpot, fourSpot, fiveSpot, sixSpot, sevenSpot, eightSpot, nineSpot];
+  // let spots = [oneSpot, twoSpot, threeSpot, fourSpot, fiveSpot, sixSpot, sevenSpot, eightSpot, nineSpot];
   gameReset(spots);
   winner.innerHTML = '';
   turn.letter = 'O'
