@@ -1,4 +1,4 @@
-exports.traverse = function (json) {
+const traverse = function (json) {
     let result = [];
     let record = {}
 
@@ -16,5 +16,4 @@ exports.traverse = function (json) {
     return result;
 }
 
-
-
+module.exports.traverse = traverse;

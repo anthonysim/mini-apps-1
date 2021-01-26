@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const traverse = require('./modules/traverse')
+const mod = require('./modules/traverse')
+const { jsonToCSV } = require('./modules/jsonToCSV')
 
 const app = express()
 const port = 3000
@@ -14,19 +15,13 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 
-app.post('/upload_json', (req, res) => {
-  // retrieve data from request body
+app.post('/upload_json', async (req, res) => {
   let { data } = req.body;
+  parsedData = JSON.parse(data);
 
-  // parse data to JSON format
-  data = JSON.parse(data);
-  console.log(data)
-
-  // get all headers
-  let headers = Object.keys(data).filter(key => key !== 'children');
-
-  let traversedData = traverse(data);
+  let traversedData = mod.traverse(parsedData)
   console.log(traversedData)
+
   res.redirect('/');
 })
 

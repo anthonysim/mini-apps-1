@@ -1,4 +1,4 @@
-exports.convertCSV = function (arr) {
+const convertCSV = function (arr) {
   let headers = Object.keys(arr[0]).join(',') + '\n';
 
   let records = '';
@@ -10,3 +10,5 @@ exports.convertCSV = function (arr) {
   }
   return headers + records;
 }
+
+module.exports.convertCSV = convertCSV;
