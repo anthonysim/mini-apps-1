@@ -177,7 +177,7 @@ table.addEventListener('click', () => {
 
   if (!row && !leftToRight && !RightToLeft && !column && !row1 && !row2 && !row3) {
     winner.innerText = '';
-    let html = `<h1 id="announcement">Tie! No winner!</h1>`;
+    let html = `<h1 id="announcement">Tie! No winner!</h1><p id="warning">Please press New Game Button to play again!</p>`;
     winner.innerHTML += html;
   }
 })

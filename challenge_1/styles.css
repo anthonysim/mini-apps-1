@@ -71,12 +71,14 @@ body {
   font-size: 40px;
 }
 
+/* message below winner announcement */
 #warning {
   color: #6c757d;
   text-align: center;
   font-size: 15px;
 }
 
+/* white out empty spots when winner is determined */
 .white {
   color: white;
 }
