@@ -1,0 +1,17 @@
+{
+  "name": "csvreportgenerator",
+  "version": "1.0.0",
+  "description": "csv report generator",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Anthony Sim",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
