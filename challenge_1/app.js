@@ -27,20 +27,12 @@ let nineSpot = document.getElementById('nine');
 // DOM GRABS NEW GAME RESET BUTTON
 let button = document.getElementById('button');
 
-
-// Function to determine winner!!!!!
-// need to initiate if there are 5 or more X + Os combined total
-
-
-
-
 // FUNC THAT RESETS GAME
 const gameReset = function (arr) {
   for (let spot of arr) {
     spot.innerText = ''
   }
 }
-
 
 // FUNC SWITCHES B/T X's AND O's
 const player = function (turn) {
@@ -75,16 +67,98 @@ const rowTest = function (arr) {
   return false;
 };
 
-// Tests diagonal from left to right
+// Tests diagonal left to right
+const diagLeftToRightTest = function (arr) {
+  let col = 0;
+  let diagLeftToRight = [];
 
+  for (let row = 0; row < matrix.length; row++) {
+    let rows = matrix[row][col];
+
+    diagLeftToRight.push(rows);
+    col += 1;
+  }
+  let X = diagLeftToRight.every((item) => item === 'X');
+  let O = diagLeftToRight.every((item) => item === 'O');
+
+  if (X) {
+    return 'X'
+
+  } else if (O) {
+    return 'O'
+
+  } else {
+    return false;
+  }
+};
+
+// Tests diagonal right to left
+const diagRightToLeftTest = function (arr, letter) {
+  let reverseCol = matrix.length - 1;
+  let diagRightToLeft = [];
+
+  for (let row = 0; row < matrix.length; row++) {
+    let rows = matrix[row][reverseCol];
+
+    diagRightToLeft.push(rows);
+    reverseCol -= 1;
+  }
+
+  let X = diagRightToLeft.every((item) => item === 'X');
+  let O = diagRightToLeft.every((item) => item === 'O');
+
+  if (X) {
+    return 'X'
+
+  } else if (O) {
+    return 'O'
+
+  } else {
+    return false;
+  }
+};
+
+// Tests all columns
+const colTest = function (arr) {
+  let columns = [];
+
+  for (let col = 0; col < arr.length; col++) {
+    let temp = []
+    for (let row = 0; row < arr.length; row++) {
+      let column = arr[row][col];
+      temp.push(column)
+    }
+    columns.push(temp)
+  }
+
+  for (let array of columns) {
+    let X = array.every((item) => item === 'X');
+    let O = array.every((item) => item === 'O');
+
+    if (X) {
+      return 'X';
+    }
+
+    if (O) {
+      return 'O'
+    }
+  }
+
+  return false;
+}
+
+// TESTS WHO THE WINNER IS X OR O?!?!?!?
 table.addEventListener('click', () => {
   let row = rowTest(matrix);
-  if (row) {
+  let leftToRight = diagLeftToRightTest(matrix);
+  let RightToLeft = diagRightToLeftTest(matrix);
+  let col = colTest(matrix);
+
+  if (row || leftToRight || RightToLeft || col) {
     let html = `<h1 id="announcement">Player ${turn.prevLetter} is the winner!</h1>`;
     winner.innerHTML += html;
   }
 })
-
 
 // NEW GAME RESET
 button.addEventListener('click', () => {
@@ -99,9 +173,7 @@ button.addEventListener('click', () => {
   winner.innerHTML = '';
   turn.letter = 'O'
   turn.count = 0;
-  console.log(matrix);
 })
-
 
 // EVENT LISTENERS CLICKING ON THE TABLE
 oneSpot.addEventListener('click', (e) => {
@@ -172,7 +244,6 @@ sevenSpot.addEventListener('click', (e) => {
     matrix[2][0] = result;
     turn.count += 1;
   }
-
 })
 
 eightSpot.addEventListener('click', (e) => {
@@ -194,63 +265,3 @@ nineSpot.addEventListener('click', (e) => {
     turn.count += 1;
   }
 })
-
-
-// // tests 3 items
-// const threeSetTest = function (arr, letter) {
-//   let result = arr.every((item) => item === letter);
-//   return result;
-// };
-
-
-
-// // diagonal test left to right
-// const diagLeftToRightTest = function (arr, letter) {
-//   let col = 0;
-//   let diagLeftToRight = [];
-
-//   // diag left to right
-//   for (let row = 0; row < matrix.length; row++) {
-//     let rows = matrix[row][col];
-
-//     diagLeftToRight.push(rows);
-//     col += 1;
-//   }
-//   return threeSetTest(diagLeftToRight, letter) ? true : false;
-// };
-
-// // diagonal test right to left
-// const diagRightToLeftTest = function (arr, letter) {
-//   // diag right to left
-//   let reverseCol = matrix.length - 1;
-//   let diagRightToLeft = [];
-
-//   for (let row = 0; row < matrix.length; row++) {
-//     let rows = matrix[row][reverseCol];
-
-//     diagRightToLeft.push(rows);
-//     reverseCol -= 1;
-//   }
-//   return threeSetTest(diagRightToLeft, letter) ? true : false;
-// };
-
-// // where all the test originate from
-// const gameWinner = function (arr, letter, callback) {
-//   for (let i = 0; i < arr.length; i++) {
-//     let rows = arr[i];
-
-//     if (callback(rows, letter) === false) {
-//       continue;
-//     }
-//     return `Player ${letter} is the winner!`;
-//   }
-//   return false;
-// };
-
-
-
-
-
-
-
-
