@@ -5,16 +5,26 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- Tab Title -->
   <title>CSV Report Generator Mini App 2</title>
 </head>
 
-<body>
-  <h1>CSV Report Generator</h1>
+<body style="font-family: 'Open Sans', sans-serif;">
 
+  <!-- Title on top of Web Page -->
+  <h1 style="text-align: center">CSV Report Generator</h1>
 
+  <!-- HTML Form -->
+  <form action="/upload_json" method="POST" style="margin: 0 auto; width: 400px;">
+    <textarea name="data" id="submit" cols="50" rows="10">JSON DATA</textarea>
+    <input type="submit">
+  </form>
 
+  <!-- JS File -->
+  <script src="app.js"></script>
 </body>
 
 </html>
