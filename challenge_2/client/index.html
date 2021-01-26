@@ -8,6 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <!-- Tab Title -->
   <title>CSV Report Generator Mini App 2</title>
 </head>
@@ -19,9 +20,70 @@
 
   <!-- HTML Form -->
   <form action="/upload_json" method="POST" style="margin: 0 auto; width: 400px;">
-    <textarea name="data" id="submit" cols="50" rows="10">JSON DATA</textarea>
+    <textarea name="data" id="submit" cols="50" rows="10"></textarea>
     <input type="submit">
   </form>
+
+  <br>
+
+  <!-- File picker version -->
+  <!-- <form action="/upload_json" method="POST" style="margin: 0 auto; width: 400px;" name="uploadForm">
+    <div>
+      <input id="uploadInput" type="file" name="myFiles" multiple>
+    </div>
+    <div><input type="submit" value="Send file"></div>
+  </form> -->
+
+  <table>
+    <tr>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>county</th>
+      <th>city</th>
+      <th>role</th>
+      <th>sales</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
 
   <!-- JS File -->
   <script src="app.js"></script>

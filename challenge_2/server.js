@@ -1,22 +1,32 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const traverseFunc = require('./methods')
+
 const app = express()
 const port = 3000
 
 // STATIC FILE
 app.use(express.static('client'))
 
+// method inbuilt in express to recognize the incoming Request Object as strings or arrays.
+app.use(express.urlencoded({ extended: false }))
 // recognize the incoming Request Object as a JSON Object.
 app.use(express.json())
-// app.use(bodyParser.json());
-
-// method inbuilt in express to recognize the incoming Request Object as strings or arrays.
-app.use(express.urlencoded({ extended: true }))
 
 
 app.post('/upload_json', (req, res) => {
-  let data = req.body
+  // retrieve data from request body
+  let { data } = req.body;
+
+  // parse data to JSON format
+  data = JSON.parse(data);
   console.log(data)
+
+  // get all headers
+  let headers = Object.keys(data).filter(key => key !== 'children');
+
+  let traversedData = traverseFunc(data);
+
   res.redirect('/');
 })
 
