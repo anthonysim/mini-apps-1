@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const traverseFunc = require('./methods')
+const traverse = require('./modules/traverse')
 
 const app = express()
 const port = 3000
@@ -25,10 +25,14 @@ app.post('/upload_json', (req, res) => {
   // get all headers
   let headers = Object.keys(data).filter(key => key !== 'children');
 
-  let traversedData = traverseFunc(data);
-
+  let traversedData = traverse(data);
+  console.log(traversedData)
   res.redirect('/');
 })
+
+// app.post('/download', (req, res) => {
+//   res.redirect('/');
+// })
 
 
 // SERVER CONNECTION
