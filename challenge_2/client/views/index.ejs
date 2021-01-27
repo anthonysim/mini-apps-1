@@ -16,43 +16,12 @@
       <%- include('./downloadLink'); %>
 
         <!-- table for the data! -->
-        <table>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>County</th>
-            <th>City</th>
-            <th>Role</th>
-            <th>Sales</th>
-          </tr>
-          <tr>
-            <td>
-              <%= data[0].firstName %>
-            </td>
-            <td>
-              <%= data[0].lastName %>
-            </td>
-            <td>
-              <%= data[0].county %>
-            </td>
-            <td>
-              <%= data[0].city %>
-            </td>
-            <td>
-              <%= data[0].role %>
-            </td>
-            <td>
-              <%= data[0].sales %>
-            </td>
-          </tr>
+
         </table>
+        <%- include('./table'); %>
 
-
-        <!-- JS File -->
-        <script src=" app.js"></script>
-
-        <!-- EXPRESS SERVER -->
-
+          <!-- JS File -->
+          <script src=" app.js"></script>
 
   </body>
 
