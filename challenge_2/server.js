@@ -1,28 +1,35 @@
 const express = require('express')
-const bodyParser = require('body-parser')
+const fs = require('fs')
 const mod = require('./modules/traverse')
-const { jsonToCSV } = require('./modules/jsonToCSV')
+const csv = require('./modules/jsonToCSV')
 
 const app = express()
 const port = 3000
 
 // STATIC FILE
-app.use(express.static('client'))
+// app.use(express.static('client'))
+app.set('views', './client/views')
+app.set('view engine', 'ejs');
 
-// method inbuilt in express to recognize the incoming Request Object as strings or arrays.
 app.use(express.urlencoded({ extended: false }))
-// recognize the incoming Request Object as a JSON Object.
 app.use(express.json())
+app.use(express.static(__dirname + '/client'));
 
 
-app.post('/upload_json', async (req, res) => {
+// GETs
+app.get('/', (req, res) => {
+  res.render('index')
+})
+
+app.post('/upload_json', (req, res) => {
+
   let { data } = req.body;
+  console.log(data)
   parsedData = JSON.parse(data);
-
+  console.log(parsedData)
   let traversedData = mod.traverse(parsedData)
   console.log(traversedData)
-
-  res.redirect('/');
+  res.send(traversedData)
 })
 
 // app.post('/download', (req, res) => {

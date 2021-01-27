@@ -4,14 +4,13 @@ const traverse = function (json) {
 
     for (let key in json) {
         if (!Array.isArray(json[key])) {
-            record[key] = json[key];
+            record[key] = json[key]
         }
     }
 
     for (let child of json.children) {
-        result = result.concat(traverse(child));
+        result = result.concat(traverse(child))
     }
-
     result.push(record);
     return result;
 }
