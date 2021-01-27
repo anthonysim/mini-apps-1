@@ -29,7 +29,8 @@ app.post('/upload_json', (req, res) => {
   console.log(parsedData)
   let traversedData = mod.traverse(parsedData)
   console.log(traversedData)
-  res.send(traversedData)
+  // res.send(traversedData)
+  res.render('./index', { data: traversedData })
 })
 
 // app.post('/download', (req, res) => {
