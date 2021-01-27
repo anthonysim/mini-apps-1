@@ -1,10 +1,10 @@
 const traverse = function (json) {
     let result = [];
-    let record = {}
+    let record = {};
 
     for (let key in json) {
         if (!Array.isArray(json[key])) {
-            record[key] = json[key]
+            record[key] = json[key];
         }
     }
 

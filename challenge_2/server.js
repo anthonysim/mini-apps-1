@@ -11,7 +11,7 @@ const port = 3000
 app.set('views', './client/views')
 app.set('view engine', 'ejs');
 
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static(__dirname + '/client'));
 
@@ -23,18 +23,20 @@ app.get('/', (req, res) => {
 
 app.post('/upload_json', (req, res) => {
 
+
   let { data } = req.body;
   console.log(data)
-  parsedData = JSON.parse(data);
-  console.log(parsedData)
-  let traversedData = mod.traverse(parsedData)
-  console.log(traversedData)
-  // res.send(traversedData)
-  res.render('./index', { data: traversedData })
+  // parsedData = JSON.parse(data);
+
+  // let traversedData = mod.traverse(parsedData)
+  // console.log(traversedData)
+
+  // res.render('./index', { data: traversedData })
 })
 
 // app.post('/download', (req, res) => {
-//   res.redirect('/');
+
+//   res.render('./index')
 // })
 
 
