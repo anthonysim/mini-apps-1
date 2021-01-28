@@ -1,15 +1,15 @@
 <!-- Textarea version -->
-<form action="/upload_json" method="POST" style="margin: 0 auto; width: 400px;">
+<!-- <form action="/upload_json" method="POST" style="margin: 0 auto; width: 400px;">
   <textarea name="data" id="submit" cols="50" rows="10"></textarea>
   <input type="submit">
 </form>
-<br>
+<br> -->
 
 <!-- File picker version -->
-<form id="picker" action="/upload" enctype="multipart/form-data" method="POST">
+<form id="fileUpload" action="/upload" enctype="multipart/form-data" method="POST">
   <div>
     <input type="file" name="avatar">
   </div>
-  <div><input type="submit" value="Send file"></div>
+  <div><input id="submitBtn" type="submit" value="Send file"></div>
 </form>
 <br>

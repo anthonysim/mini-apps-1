@@ -4,7 +4,7 @@ const fs = require('fs')
 // MIDDLEWARE FOR UPLOADS
 const multer = require('multer')
 
-// IMPORT OF METHODS CREATED TO MANIPULATE INCOMING DATA
+// IMPORT METHODS CREATED TO MANIPULATE INCOMING DATA
 const { traverse } = require('./modules/traverse')
 const { convertCSV } = require('./modules/jsonToCSV')
 
@@ -16,7 +16,7 @@ app.set('views', './client/views')
 app.set('view engine', 'ejs');
 
 // STATIC FILE
-app.use(express.static(__dirname + '/client/views/stylesheets'));
+app.use(express.static(__dirname + '/client'));
 
 
 // POST INCOMING DATA
@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 app.get('/download', (req, res) => {
   try {
     res.download(__dirname + '/uploads/csv_report.csv');
+
   } catch (err) {
     console.error(err)
   }
@@ -86,5 +87,5 @@ app.post('/upload', upload.single('avatar'), (req, res) => {
 
 // SERVER CONNECTION
 app.listen(port, () => {
-  console.log(`Listening at PORT ${port}`)
+  console.log(`Listening on PORT ${port} 😀 !`)
 })
