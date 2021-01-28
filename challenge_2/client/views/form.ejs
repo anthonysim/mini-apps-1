@@ -1,3 +1,4 @@
+<!-- Textarea version -->
 <form action="/upload_json" method="POST" style="margin: 0 auto; width: 400px;">
   <textarea name="data" id="submit" cols="50" rows="10"></textarea>
   <input type="submit">
@@ -5,9 +6,10 @@
 <br>
 
 <!-- File picker version -->
-<form action="/upload_json" enctype="multipart/form-data" method="POST">
+<form action="/upload" enctype="multipart/form-data" method="POST">
   <div>
     <input type="file" name="avatar">
   </div>
   <div><input type="submit" value="Send file"></div>
 </form>
+<br>
