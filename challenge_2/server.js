@@ -34,8 +34,7 @@ app.get('/', (req, res) => {
 // POST DOWNLOAD DATA
 app.get('/download', (req, res) => {
   try {
-    let csvData = fs.readFileSync(__dirname + '/uploads/csv_report.csv')
-    res.send(csvData);
+    res.download(__dirname + '/uploads/csv_report.csv');
   } catch (err) {
     console.error(err)
   }
