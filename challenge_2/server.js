@@ -66,7 +66,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-// POST UPLOAD FILE PICKER / UPLOAD VERSION
+// POST UPLOAD FILE PICKER / UPLOAD VERSION THROUGH THE FORM VERSION
 // app.post('/upload', upload.single('avatar'), (req, res) => {
 //   console.log(req.body)
 //   try {
@@ -85,7 +85,7 @@ const upload = multer({ storage: storage })
 //   res.render('./index')
 // })
 
-// POST UPLOAD FILE PICKER / UPLOAD VERSION
+// POST UPLOAD FILE PICKER / UPLOAD WITH JQUERY AJAX REQUEST VERSION
 app.post('/upload', upload.single('avatar'), (req, res) => {
 
   try {
@@ -102,21 +102,6 @@ app.post('/upload', upload.single('avatar'), (req, res) => {
   } catch (err) {
     console.error(err);
   }
-
-  // try {
-  //   let data = fs.readFileSync(__dirname + '/uploads/sales_report.json')
-  //   let parsedData = JSON.parse(data.toString());
-  //   let traversedData = traverse(parsedData)
-  //   let csvData = convertCSV(traversedData)
-
-  //   fs.writeFileSync(__dirname + '/uploads/csv_report.csv', csvData)
-
-  //   res.render('./index', { data: traversedData })
-
-  // } catch (err) {
-  //   console.error(err)
-  // }
-  // res.render('./index')
 })
 
 

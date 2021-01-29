@@ -4,7 +4,7 @@ let data;
 
 input.addEventListener('change', e => {
   const reader = new FileReader();
-  console.log(input.files)
+  // console.log(input.files)
   reader.onload = () => {
     data = reader.result;
     console.log(data)
