@@ -20,7 +20,7 @@ app.use(express.static(__dirname + '/client'));
 
 
 // POST INCOMING DATA
-app.use(express.urlencoded({ extended: true }))
+// app.use(express.urlencoded({ extended: true }))
 // parse application/json
 app.use(express.json())
 
@@ -59,6 +59,7 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const { originalname } = file;
+    console.log(originalname)
     cb(null, originalname)
   }
 })
@@ -66,21 +67,50 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 // POST UPLOAD FILE PICKER / UPLOAD VERSION
+// app.post('/upload', upload.single('avatar'), (req, res) => {
+//   console.log(req.body)
+//   try {
+//     let data = fs.readFileSync(__dirname + '/uploads/sales_report.json')
+//     let parsedData = JSON.parse(data.toString());
+//     let traversedData = traverse(parsedData)
+//     let csvData = convertCSV(traversedData)
+
+//     fs.writeFileSync(__dirname + '/uploads/csv_report.csv', csvData)
+
+//     res.render('./index', { data: traversedData })
+
+//   } catch (err) {
+//     console.error(err)
+//   }
+//   res.render('./index')
+// })
+
+// POST UPLOAD FILE PICKER / UPLOAD VERSION
 app.post('/upload', upload.single('avatar'), (req, res) => {
 
   try {
-    let data = fs.readFileSync(__dirname + '/uploads/sales_report.json')
-    let parsedData = JSON.parse(data.toString());
-    let traversedData = traverse(parsedData)
-    let csvData = convertCSV(traversedData)
+    let data = req.body;
+    console.log(data)
 
-    fs.writeFileSync(__dirname + '/uploads/csv_report.csv', csvData)
-
-    res.render('./index', { data: traversedData })
 
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
+
+  // try {
+  //   let data = fs.readFileSync(__dirname + '/uploads/sales_report.json')
+  //   let parsedData = JSON.parse(data.toString());
+  //   let traversedData = traverse(parsedData)
+  //   let csvData = convertCSV(traversedData)
+
+  //   fs.writeFileSync(__dirname + '/uploads/csv_report.csv', csvData)
+
+  //   res.render('./index', { data: traversedData })
+
+  // } catch (err) {
+  //   console.error(err)
+  // }
+  // res.render('./index')
 })
 
 
