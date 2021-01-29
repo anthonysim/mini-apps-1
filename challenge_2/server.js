@@ -94,10 +94,13 @@ app.post('/upload', upload.single('avatar'), (req, res) => {
 
     let traversedData = traverse(data);
     let csvData = convertCSV(traversedData);
+    console.log(traversedData)
 
     fs.writeFileSync(__dirname + '/uploads/csv_report.csv', csvData)
+    console.log(traversedData)
+    // res.render('./index', { data: traversedData })
+    res.send({ data: traversedData })
 
-    res.render('./index', { data: traversedData })
 
   } catch (err) {
     console.error(err);
