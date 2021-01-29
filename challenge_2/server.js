@@ -90,8 +90,14 @@ app.post('/upload', upload.single('avatar'), (req, res) => {
 
   try {
     let data = req.body;
-    console.log(data)
+    let jsonFile = fs.writeFileSync(__dirname + '/uploads/sales_report.json', JSON.stringify(data))
 
+    let traversedData = traverse(data);
+    let csvData = convertCSV(traversedData);
+
+    fs.writeFileSync(__dirname + '/uploads/csv_report.csv', csvData)
+
+    res.render('./index', { data: traversedData })
 
   } catch (err) {
     console.error(err);
