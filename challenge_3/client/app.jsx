@@ -17,30 +17,107 @@ class App extends React.Component {
       CVV: '',
       creditCardZipCode: ''
     }
-    this.changeHandler = this.changeHandler.bind(this);
-    this.onbSubmit = this.onbSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.previous = this.previous.bind(this);
+    this.next = this.next.bind(this);
   }
 
-  changeHandler(e) {
+  handleChange(e) {
     const { name, value } = e.target;
     this.setState({
       [name]: value
     })
   }
 
-  onbSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     const { name, email, password, address1, address2, city, state, zipCode, phoneNumber, creditCardNumber, expiredDate, CVV, creditCardZipCode } = this.state;
   }
 
+  previous() {
+    if (this.state.step > 0) {
+      this.setState(prevState => {
+        return {
+          step: prevState.step -= 1
+        }
+      })
+    }
+  }
+
+  next() {
+    if (this.state.step < 4) {
+      this.setState(prevState => {
+        return {
+          step: prevState.step += 1
+        }
+      })
+    }
+    console.log(this.state.name, this.state.email, this.state.password)
+  }
+
   render() {
-    console.log(this.state.step)
     let formStep;
 
     if (this.state.step === 1) {
-      formStep = <button>Checkout</button>
+      formStep = <button onClick={this.next}>Checkout</button>
+
     } else if (this.state.step === 2) {
-      formStep = <input type="text" value="name" />
+      formStep = <form onSubmit={this.handleSubmit}>
+        <h3>Name:</h3>
+        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>Email:</h3>
+        <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>Password:</h3>
+        <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+      </form>
+
+    } else if (this.state.step === 3) {
+      formStep = <form onSubmit={this.handleSubmit}>
+        <h3>Address1:</h3>
+        <input type="text" name="address1" value={this.state.address1} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>Address2:</h3>
+        <input type="text" name="address2" value={this.state.address2} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>City:</h3>
+        <input type="text" name="city" value={this.state.city} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>State:</h3>
+        <input type="text" name="state" value={this.state.state} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>Zipcode:</h3>
+        <input type="text" name="zipcode" value={this.state.zipcode} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>Phone Number:</h3>
+        <input type="text" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} />
+      </form>
+    } else {
+      formStep = <form onSubmit={this.handleSubmit}>
+        <h3>Credit Card Number:</h3>
+        <input type="text" name="creditCardNumber" value={this.state.creditCardNumber} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>Expiration Date:</h3>
+        <input type="text" name="expiredDate" value={this.state.expiredDate} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>CVV:</h3>
+        <input type="text" name="CVV" value={this.state.CVV} onChange={this.handleChange} />
+        <br />
+        <br />
+        <h3>Billing Zip Code:</h3>
+        <input type="text" name="creditCardZipCode" value={this.state.creditCardZipCode} onChange={this.handleChange} />
+      </form>
     }
 
 
@@ -50,6 +127,10 @@ class App extends React.Component {
         <p>Step {this.state.step}</p>
 
         {formStep}
+        <br />
+        {this.state.step >= 2 && this.state.step < 4 && <button onClick={this.previous}>Previous</button>}
+        {this.state.step >= 2 && this.state.step < 4 && <button onClick={this.next}>Next</button>}
+        {this.state.step === 4 && <button>Submit</button>}
       </div >
     )
   }
