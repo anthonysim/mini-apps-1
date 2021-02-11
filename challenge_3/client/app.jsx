@@ -1,3 +1,5 @@
+// import axios from 'axios';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -33,6 +35,13 @@ class App extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { name, email, password, address1, address2, city, state, zipCode, phoneNumber, creditCardNumber, expiredDate, CVV, creditCardZipCode } = this.state;
+
+    const userData = { name, email, password, address1, address2, city, state, zipCode, phoneNumber, creditCardNumber, expiredDate, CVV, creditCardZipCode }
+    console.log(userData)
+
+    axios.post('/user', userData)
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
   }
 
   previous() {
@@ -56,6 +65,7 @@ class App extends React.Component {
     console.log(this.state.name, this.state.email, this.state.password)
   }
 
+
   render() {
     let formStep;
 
@@ -63,7 +73,7 @@ class App extends React.Component {
       formStep = <button onClick={this.next}>Checkout</button>
 
     } else if (this.state.step === 2) {
-      formStep = <form onSubmit={this.handleSubmit}>
+      formStep = <form >
         <h3>Name:</h3>
         <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
         <br />
@@ -77,7 +87,7 @@ class App extends React.Component {
       </form>
 
     } else if (this.state.step === 3) {
-      formStep = <form onSubmit={this.handleSubmit}>
+      formStep = <form >
         <h3>Address1:</h3>
         <input type="text" name="address1" value={this.state.address1} onChange={this.handleChange} />
         <br />
@@ -95,14 +105,14 @@ class App extends React.Component {
         <br />
         <br />
         <h3>Zipcode:</h3>
-        <input type="text" name="zipcode" value={this.state.zipcode} onChange={this.handleChange} />
+        <input type="text" name="zipCode" value={this.state.zipCode} onChange={this.handleChange} />
         <br />
         <br />
         <h3>Phone Number:</h3>
         <input type="text" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleChange} />
       </form>
     } else {
-      formStep = <form onSubmit={this.handleSubmit}>
+      formStep = <form >
         <h3>Credit Card Number:</h3>
         <input type="text" name="creditCardNumber" value={this.state.creditCardNumber} onChange={this.handleChange} />
         <br />
@@ -130,7 +140,7 @@ class App extends React.Component {
         <br />
         {this.state.step >= 2 && this.state.step < 4 && <button onClick={this.previous}>Previous</button>}
         {this.state.step >= 2 && this.state.step < 4 && <button onClick={this.next}>Next</button>}
-        {this.state.step === 4 && <button>Submit</button>}
+        {this.state.step === 4 && <button onClick={this.handleSubmit}>Submit</button>}
       </div >
     )
   }
