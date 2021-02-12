@@ -1,23 +1,21 @@
-// import axios from 'axios';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       step: 1,
-      name: '',
-      email: '',
-      password: '',
-      address1: '',
-      address2: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      phoneNumber: '',
-      creditCardNumber: '',
-      expiredDate: '',
-      CVV: '',
-      creditCardZipCode: ''
+      name: 'Anthony Sim',
+      email: 'anthonyysim@gmail.com',
+      password: 'richdad',
+      address1: '3813 Huron Ave',
+      address2: 'Apt #3',
+      city: 'Culver City',
+      state: 'CA',
+      zipCode: '90232',
+      phoneNumber: '949-449-5698',
+      creditCardNumber: '1234-1234-1234-1234',
+      expiredDate: '05/22',
+      CVV: '656',
+      creditCardZipCode: '90232'
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,12 +34,35 @@ class App extends React.Component {
     e.preventDefault();
     const { name, email, password, address1, address2, city, state, zipCode, phoneNumber, creditCardNumber, expiredDate, CVV, creditCardZipCode } = this.state;
 
-    const userData = { name, email, password, address1, address2, city, state, zipCode, phoneNumber, creditCardNumber, expiredDate, CVV, creditCardZipCode }
-    console.log(userData)
+    const data = { name, email, password, address1, address2, city, state, zipCode, phoneNumber, creditCardNumber, expiredDate, CVV, creditCardZipCode }
+    console.log(data)
 
-    axios.post('/user', userData)
-      .then(res => console.log(res))
-      .catch(err => console.error(err))
+    fetch('http://localhost:3000/user', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then(() => console.log('Success!'))
+      .then(() => this.setState({
+        step: 1,
+        name: '',
+        email: '',
+        password: '',
+        address1: '',
+        address2: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        phoneNumber: '',
+        creditCardNumber: '',
+        expiredDate: '',
+        CVV: '',
+        creditCardZipCode: ''
+      }))
+      .catch(() => console.error('Something wrong happened!'))
   }
 
   previous() {
@@ -134,13 +155,13 @@ class App extends React.Component {
     return (
       <div>
         <h1>Checkout</h1>
-        <p>Step {this.state.step}</p>
+        {/* <p>Step {this.state.step}</p> */}
 
         {formStep}
         <br />
         {this.state.step >= 2 && this.state.step < 4 && <button onClick={this.previous}>Previous</button>}
         {this.state.step >= 2 && this.state.step < 4 && <button onClick={this.next}>Next</button>}
-        {this.state.step === 4 && <button onClick={this.handleSubmit}>Submit</button>}
+        {this.state.step === 4 && <button onClick={this.handleSubmit}>Purchase</button>}
       </div >
     )
   }
