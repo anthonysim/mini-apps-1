@@ -13,7 +13,7 @@ CREATE TABLE user (
   state VARCHAR(255) NOT NULL,
   zipCode INT NOT NULL,
   phoneNumber VARCHAR(255) NOT NULL,
-  creditCardNumber INT NOT NULL,
+  creditCardNumber VARCHAR(255) NOT NULL,
   expiredDate VARCHAR(255) NOT NULL,
   CVV INT NOT NULL,
   creditCardZipCode INT NOT NULL,

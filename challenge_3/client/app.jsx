@@ -155,7 +155,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Checkout</h1>
-        {/* <p>Step {this.state.step}</p> */}
+        <p>Step {this.state.step}</p>
 
         {formStep}
         <br />
