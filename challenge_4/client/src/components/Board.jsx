@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Board = (props) => {
 
 
@@ -7,7 +8,7 @@ const Board = (props) => {
     minHeight: "60px"
   }
   return (
-    < div class="container mt-5 border border-dark" >
+    < div style={{ width: "60%" }} class="container mt-5 border border-dark" >
 
       {/* Row 1 */}
       <div class="row text-center">
