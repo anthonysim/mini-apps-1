@@ -1,8 +1,9 @@
 import React from 'react';
 
 
-const Board = ({ pieces }) => {
-  let result = '';
+const Board = ({ pieces, boardClick }) => {
+
+
 
   return (
     < div style={{ width: "60%" }
