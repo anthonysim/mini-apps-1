@@ -1,16 +1,13 @@
 import React from 'react';
 
 
-const Board = ({ pieces, boardClick }) => {
-
-
-
+const Board = ({ pieces, select }) => {
+  console.log(select)
   return (
-    < div style={{ width: "60%" }
-    } className="container mt-5 border border-dark" >
+    < div style={{ width: "60%" }} className="container mt-5 border border-dark" >
 
       {/* Row 1 */}
-      <div className="row text-center" >
+      <div onClick={select} className="row text-center" >
         <div className="col-sm my-auto border-right border-bottom">{pieces[0][0]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[0][1]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[0][2]}</div>
@@ -20,7 +17,7 @@ const Board = ({ pieces, boardClick }) => {
       </div >
 
       {/* Row 2 */}
-      <div className="row text-center" >
+      <div onClick={select} className="row text-center" >
         <div className="col-sm my-auto border-right border-bottom">{pieces[1][0]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[1][1]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[1][2]}</div>
@@ -30,7 +27,7 @@ const Board = ({ pieces, boardClick }) => {
       </div >
 
       {/* Row 3 */}
-      <div className="row text-center" >
+      <div onClick={select} className="row text-center" >
         <div className="col-sm my-auto border-right border-bottom">{pieces[2][0]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[2][1]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[2][2]}</div>
@@ -40,7 +37,7 @@ const Board = ({ pieces, boardClick }) => {
       </div >
 
       {/* Row 4 */}
-      <div className="row text-center" >
+      <div onClick={select} className="row text-center" >
         <div className="col-sm my-auto border-right border-bottom">{pieces[3][0]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[3][1]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[3][2]}</div>
@@ -50,7 +47,7 @@ const Board = ({ pieces, boardClick }) => {
       </div >
 
       {/* Row 5 */}
-      <div className="row text-center" >
+      <div onClick={select} className="row text-center" >
         <div className="col-sm my-auto border-right border-bottom">{pieces[4][0]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[4][1]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[4][2]}</div>
@@ -60,7 +57,7 @@ const Board = ({ pieces, boardClick }) => {
       </div >
 
       {/* Row 6 */}
-      <div className="row text-center" >
+      <div onClick={select} className="row text-center" >
         <div className="col-sm my-auto border-right border-bottom">{pieces[5][0]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[5][1]}</div>
         <div className="col-sm my-auto border-right border-bottom">{pieces[5][2]}</div>

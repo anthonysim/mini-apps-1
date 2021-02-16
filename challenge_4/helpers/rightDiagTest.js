@@ -1,0 +1,35 @@
+// console.log(board[3][0])
+// console.log(board[2][1])
+// console.log(board[1][2])
+// console.log(board[0][3]);
+
+// console.log(board[4][0])
+// console.log(board[3][1])
+// console.log(board[2][2])
+// console.log(board[1][3])
+// console.log(board[0][4])
+
+// console.log(board[5][0])
+// console.log(board[4][1])
+// console.log(board[3][2])
+// console.log(board[2][3])
+// console.log(board[1][4])
+// console.log(board[0][5])
+
+// console.log(board[5][1])
+// console.log(board[4][2])
+// console.log(board[3][3])
+// console.log(board[2][4])
+// console.log(board[1][5])
+// console.log(board[0][6])
+
+// console.log(board[5][2])
+// console.log(board[4][3])
+// console.log(board[3][4])
+// console.log(board[2][5])
+// console.log(board[1][6])
+
+// console.log(board[5][3])
+// console.log(board[4][4])
+// console.log(board[3][5])
+// console.log(board[2][6])

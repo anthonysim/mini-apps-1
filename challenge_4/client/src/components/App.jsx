@@ -21,8 +21,10 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    console.log('The link was clicked.');
+  handleClick(e) {
+    e.preventDefault;
+    console.log(e.target)
+    // console.log(this.state.playerTurn ? 'O' : 'X');
   }
 
   render() {
@@ -30,9 +32,7 @@ class App extends Component {
       <div>
         <h1 className="display-4 mt-3 text-center text-info">CONNECT FOUR</h1>
         <br />
-        <Board pieces={this.state.board} />
-        <button onClick={() => alert("Hello!")}>Say Hello</button>
-        <button onClick={this.handleClick}>gdfgfdgfd</button>
+        <Board pieces={this.state.board} select={this.handleClick} />
       </div>
     );
   }

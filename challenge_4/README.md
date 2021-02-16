@@ -1,0 +1,2 @@
+- left and right diagonal tests
+- click events that update with X or O also toggle players
