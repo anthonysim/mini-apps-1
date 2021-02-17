@@ -9,7 +9,7 @@ const Board = ({ test, pieces, select }) => {
       <div onClick={select} className="row text-center" >
         <div data-loc={0} className="zero col-sm my-auto border-right border-bottom">?</div>
         <div data-loc={1} className="one col-sm my-auto border-right border-bottom">?</div>
-        <div data-loc={2} className="col-sm my-auto border-right border-bottom">{pieces[0][2]}</div>
+        <div data-loc={2} className="two col-sm my-auto border-right border-bottom">{pieces[0][2]}</div>
         <div data-loc={3} className="col-sm my-auto border-right border-bottom">{pieces[0][3]}</div>
         <div data-loc={4} className="col-sm my-auto border-right border-bottom">{pieces[0][4]}</div>
         <div data-loc={5} className="col-sm my-auto border-right border-bottom">{pieces[0][5]}</div>
@@ -18,7 +18,6 @@ const Board = ({ test, pieces, select }) => {
 
       {/* Row 2 */}
       <div onClick={select} className="row text-center" >
-
         <div onClick={select} data-loc={7} className="col-sm my-auto border-right border-bottom">{pieces[1][1]}</div>
         <div onClick={select} data-loc={8} className="col-sm my-auto border-right border-bottom">{pieces[1][2]}</div>
         <div onClick={select} data-loc={9} className="col-sm my-auto border-right border-bottom">{pieces[1][4]}</div>

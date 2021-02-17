@@ -23,9 +23,9 @@ class App extends Component {
 
   handleClick(e) {
     e.preventDefault;
-    console.log(e.target)
-    // let zero = document.querySelector('.zero')
-    // console.log(zero.dataset)
+    let location = e.target.classList[0]
+    let item = document.querySelector(`.${location}`)
+    console.log(item.dataset)
   }
 
   render() {
