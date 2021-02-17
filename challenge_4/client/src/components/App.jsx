@@ -24,7 +24,8 @@ class App extends Component {
   handleClick(e) {
     e.preventDefault;
     console.log(e.target)
-    // console.log(this.state.playerTurn ? 'O' : 'X');
+    // let zero = document.querySelector('.zero')
+    // console.log(zero.dataset)
   }
 
   render() {
@@ -32,7 +33,7 @@ class App extends Component {
       <div>
         <h1 className="display-4 mt-3 text-center text-info">CONNECT FOUR</h1>
         <br />
-        <Board pieces={this.state.board} select={this.handleClick} />
+        <Board test={this.state.boards} pieces={this.state.board} select={this.handleClick} />
       </div>
     );
   }
