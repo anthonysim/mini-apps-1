@@ -1,36 +1,131 @@
 import React, { Component } from 'react';
 import Board from './Board.jsx';
 import { Button } from 'react-bootstrap';
+import { one, two, three, six } from '../../../helpers/selectors';
+import '../styles.css'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerTurn: 'X',
-      location: {
-        0: '?', 1: '?', 2: '?', 3: '?', 4: '?', 5: '?', 6: '?', 7: '?', 8: '?', 9: '?', 10: '?', 11: '?',
-        12: '?', 13: '?', 14: '?', 15: '?', 16: '?', 17: '?', 18: '?', 19: '?', 20: '?', 21: '?',
-        22: '?', 23: '?', 24: '?', 25: '?', 26: '?', 27: '?', 28: '?', 29: '?', 30: '?', 31: '?',
-        32: '?', 33: '?', 34: '?', 35: '?', 36: '?', 37: '?', 38: '?', 39: '?', 40: '?', 41: '?',
-      }
+      location: [
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+      ],
+      playerTurn: true
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    e.preventDefault;
+    e.preventDefault();
 
-    let item = document.querySelector(`.${e.target.classList[0]}`)
-    console.log(item.dataset)
+    let x = e.target.dataset.x;
+    let y = e.target.dataset.y;
+    console.log(x, y)
+
+    if (y === '0') {
+      let x = 5;
+      while (x >= 0) {
+        let loc = this.state.location.slice();
+        loc[x][y] = this.state.playerTurn ? 'black' : 'red';
+
+        this.setState(prevState => {
+          return {
+            location: loc,
+            playerTurn: !prevState.playerTurn
+          }
+        })
+        x -= 1;
+      }
+    }
+    //   if (this.state.location[5][y] === '') {
+    //     let loc = this.state.location.slice();
+    //     loc[5][y] = this.state.playerTurn ? 'black' : 'red';
+
+    //     this.setState(prevState => {
+    //       return {
+    //         location: loc,
+    //         playerTurn: !prevState.playerTurn
+    //       }
+    //     })
+    //   }
+    // }
+
+    console.log(this.state.location)
+
 
   }
 
   render() {
     return (
-      <div>
+      <div className="container">
+
         <h1 className="display-4 mt-3 text-center text-info">CONNECT FOUR</h1>
-        <br />
-        <Board board={this.state.location} select={this.handleClick} />
+
+        <table>
+          <tbody>
+            <tr onClick={this.handleClick}>
+              <td data-x={0} data-y={0} className="slot" ></td>
+              <td data-x={0} data-y={1} className="slot"></td>
+              <td data-x={0} data-y={2} className="slot"></td>
+              <td data-x={0} data-y={3} className="slot"></td>
+              <td data-x={0} data-y={4} className="slot"></td>
+              <td data-x={0} data-y={5} className="slot"></td>
+              <td data-x={0} data-y={6} className="slot"></td>
+            </tr>
+            <tr onClick={this.handleClick}>
+              <td data-x={1} data-y={0} className="slot" ></td>
+              <td data-x={1} data-y={1} className="slot"></td>
+              <td data-x={1} data-y={2} className="slot"></td>
+              <td data-x={1} data-y={3} className="slot"></td>
+              <td data-x={1} data-y={4} className="slot"></td>
+              <td data-x={1} data-y={5} className="slot"></td>
+              <td data-x={1} data-y={6} className="slot"></td>
+            </tr>
+            <tr onClick={this.handleClick}>
+              <td data-x={2} data-y={0} className="slot" ></td>
+              <td data-x={2} data-y={1} className="slot"></td>
+              <td data-x={2} data-y={2} className="slot"></td>
+              <td data-x={2} data-y={3} className="slot"></td>
+              <td data-x={2} data-y={4} className="slot"></td>
+              <td data-x={2} data-y={5} className="slot"></td>
+              <td data-x={2} data-y={6} className="slot"></td>
+            </tr>
+            <tr onClick={this.handleClick}>
+              <td data-x={3} data-y={0} className="slot" ></td>
+              <td data-x={3} data-y={1} className="slot"></td>
+              <td data-x={3} data-y={2} className="slot"></td>
+              <td data-x={3} data-y={3} className="slot"></td>
+              <td data-x={3} data-y={4} className="slot"></td>
+              <td data-x={3} data-y={5} className="slot"></td>
+              <td data-x={3} data-y={6} className="slot"></td>
+            </tr>
+            <tr onClick={this.handleClick}>
+              <td data-x={4} data-y={0} className="slot" ></td>
+              <td data-x={4} data-y={1} className="slot"></td>
+              <td data-x={4} data-y={2} className="slot"></td>
+              <td data-x={4} data-y={3} className="slot"></td>
+              <td data-x={4} data-y={4} className="slot"></td>
+              <td data-x={4} data-y={5} className="slot"></td>
+              <td data-x={4} data-y={6} className="slot"></td>
+            </tr>
+            <tr onClick={this.handleClick}>
+              <td data-x={5} data-y={0} className="slot" ></td>
+              <td data-x={5} data-y={1} className="slot"></td>
+              <td data-x={5} data-y={2} className="slot"></td>
+              <td data-x={5} data-y={3} className="slot"></td>
+              <td data-x={5} data-y={4} className="slot"></td>
+              <td data-x={5} data-y={5} className="slot"></td>
+              <td data-x={5} data-y={6} className="slot"></td>
+            </tr>
+          </tbody>
+        </table>
+
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Board = ({ board, select }) => {
-  console.log(board)
+  // console.log(board)
 
   return (
     < div style={{ width: "60%" }} className="container mt-5 border border-dark" >
