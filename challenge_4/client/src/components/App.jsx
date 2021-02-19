@@ -27,7 +27,6 @@ class App extends Component {
     // let x = e.target.dataset.x;
     let y = e.target.dataset.y;
 
-
     if (y === '0') {
       for (let x = 5; x >= 0; x--) {
         if (this.state.location[x][y] === '') {
@@ -45,17 +44,108 @@ class App extends Component {
       }
     }
 
-    // if (y === '0' && this.state.location[5][y] === '') {
-    //   let loc = this.state.location.slice();
-    //   loc[5][y] = this.state.playerTurn ? 'black' : 'red';
+    if (y === '1') {
+      for (let x = 5; x >= 0; x--) {
+        if (this.state.location[x][y] === '') {
+          let loc = this.state.location.slice();
+          loc[x][y] = this.state.playerTurn ? 'black' : 'red';
 
-    //   this.setState(prevState => {
-    //     return {
-    //       location: loc,
-    //       playerTurn: !prevState.playerTurn
-    //     }
-    //   })
-    // }
+          this.setState(prevState => {
+            return {
+              location: loc,
+              playerTurn: !prevState.playerTurn
+            }
+          })
+          break;
+        }
+      }
+    }
+
+    if (y === '2') {
+      for (let x = 5; x >= 0; x--) {
+        if (this.state.location[x][y] === '') {
+          let loc = this.state.location.slice();
+          loc[x][y] = this.state.playerTurn ? 'black' : 'red';
+
+          this.setState(prevState => {
+            return {
+              location: loc,
+              playerTurn: !prevState.playerTurn
+            }
+          })
+          break;
+        }
+      }
+    }
+
+    if (y === '3') {
+      for (let x = 5; x >= 0; x--) {
+        if (this.state.location[x][y] === '') {
+          let loc = this.state.location.slice();
+          loc[x][y] = this.state.playerTurn ? 'black' : 'red';
+
+          this.setState(prevState => {
+            return {
+              location: loc,
+              playerTurn: !prevState.playerTurn
+            }
+          })
+          break;
+        }
+      }
+    }
+
+    if (y === '4') {
+      for (let x = 5; x >= 0; x--) {
+        if (this.state.location[x][y] === '') {
+          let loc = this.state.location.slice();
+          loc[x][y] = this.state.playerTurn ? 'black' : 'red';
+
+          this.setState(prevState => {
+            return {
+              location: loc,
+              playerTurn: !prevState.playerTurn
+            }
+          })
+          break;
+        }
+      }
+    }
+
+    if (y === '5') {
+      for (let x = 5; x >= 0; x--) {
+        if (this.state.location[x][y] === '') {
+          let loc = this.state.location.slice();
+          loc[x][y] = this.state.playerTurn ? 'black' : 'red';
+
+          this.setState(prevState => {
+            return {
+              location: loc,
+              playerTurn: !prevState.playerTurn
+            }
+          })
+          break;
+        }
+      }
+    }
+
+    if (y === '6') {
+      for (let x = 5; x >= 0; x--) {
+        if (this.state.location[x][y] === '') {
+          let loc = this.state.location.slice();
+          loc[x][y] = this.state.playerTurn ? 'black' : 'red';
+
+          this.setState(prevState => {
+            return {
+              location: loc,
+              playerTurn: !prevState.playerTurn
+            }
+          })
+          break;
+        }
+      }
+    }
+
     console.log(this.state.location)
   }
 
