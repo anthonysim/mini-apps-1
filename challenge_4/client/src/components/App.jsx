@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import '../styles.css'
 import colTest from '../../../helpers/colTest.js';
 import rowTest from '../../../helpers/rowTest.js';
+import leftDiagTest from '../../../helpers/leftDiagTest.js';
 
 class App extends Component {
   constructor(props) {
@@ -148,12 +149,14 @@ class App extends Component {
 
     console.log(this.state.location)
     if (rowTest(this.state.location, ['black', 'black', 'black', 'black'])
-      || colTest(this.state.location, ['black', 'black', 'black', 'black'])) {
+      || colTest(this.state.location, ['black', 'black', 'black', 'black'])
+      || leftDiagTest(this.state.location, ['black', 'black', 'black', 'black'])) {
       this.setState({ winnerFound: true, winner: 'black' })
     }
 
     if (rowTest(this.state.location, ['red', 'red', 'red', 'red'])
-      || colTest(this.state.location, ['red', 'red', 'red', 'red'])) {
+      || colTest(this.state.location, ['red', 'red', 'red', 'red'])
+      || leftDiagTest(this.state.location, ['red', 'red', 'red', 'red'])) {
       this.setState({ winnerFound: true, winner: 'red' })
     }
   }
