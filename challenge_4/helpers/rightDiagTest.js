@@ -1,31 +1,31 @@
-const rightDiagTest = function (board, test) {
-  if (board[3][0] && board[2][1] && board[1][2] && board[0][3]) {
+const rightDiagTest = function (table, test) {
+  if (table[3][0] && table[2][1] && table[1][2] && table[0][3]) {
     return true;
   }
 
-  if ((board[4][0] && board[3][1] && board[2][2] && board[1][3])
-    || (board[3][1] && board[2][2] && board[1][3] && board[0][4])) {
+  if ((table[4][0] && table[3][1] && table[2][2] && table[1][3])
+    || (table[3][1] && table[2][2] && table[1][3] && table[0][4])) {
     return true;
   }
 
-  if ((board[5][0] && board[4][1] && board[3][2] && board[2][3])
-    || (board[4][1] && board[3][2] && board[2][3] && board[1][4])
-    || (board[3][2] && board[2][3] && board[1][4] && board[0][5])) {
+  if ((table[5][0] && table[4][1] && table[3][2] && table[2][3])
+    || (table[4][1] && table[3][2] && table[2][3] && table[1][4])
+    || (table[3][2] && table[2][3] && table[1][4] && table[0][5])) {
     return true;
   }
 
-  if ((board[5][1] && board[4][2] && board[3][3] && board[2][4])
-    || (board[4][2] && board[3][3] && board[2][4] && board[1][5])
-    || (board[3][3] && board[2][4] && board[1][5] && board[0][6])) {
+  if ((table[5][1] && table[4][2] && table[3][3] && table[2][4])
+    || (table[4][2] && table[3][3] && table[2][4] && table[1][5])
+    || (table[3][3] && table[2][4] && table[1][5] && table[0][6])) {
     return true;
   }
 
-  if ((board[5][2] && board[4][3] && board[3][4] && board[2][5])
-    || (board[4][3] && board[3][4] && board[2][5] && board[1][6])) {
+  if ((table[5][2] && table[4][3] && table[3][4] && table[2][5])
+    || (table[4][3] && table[3][4] && table[2][5] && table[1][6])) {
     return true;
   }
 
-  if (board[5][3] && board[4][4] && board[3][5] && board[2][6]) {
+  if (table[5][3] && table[4][4] && table[3][5] && table[2][6]) {
     return true;
   }
 
@@ -36,20 +36,20 @@ export default rightDiagTest;
 
 
 
-// console.log(board[5][1])
-// console.log(board[4][2])
-// console.log(board[3][3])
-// console.log(board[2][4])
-// console.log(board[1][5])
-// console.log(board[0][6])
+// console.log(table[5][1])
+// console.log(table[4][2])
+// console.log(table[3][3])
+// console.log(table[2][4])
+// console.log(table[1][5])
+// console.log(table[0][6])
 
-// console.log(board[5][2])
-// console.log(board[4][3])
-// console.log(board[3][4])
-// console.log(board[2][5])
-// console.log(board[1][6])
+// console.log(table[5][2])
+// console.log(table[4][3])
+// console.log(table[3][4])
+// console.log(table[2][5])
+// console.log(table[1][6])
 
-// console.log(board[5][3])
-// console.log(board[4][4])
-// console.log(board[3][5])
-// console.log(board[2][6])
+// console.log(table[5][3])
+// console.log(table[4][4])
+// console.log(table[3][5])
+// console.log(table[2][6])
