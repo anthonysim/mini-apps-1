@@ -170,13 +170,15 @@ class App extends Component {
     // console.log(this.state.location)
     if (rowTest(this.state.location, ['black', 'black', 'black', 'black'])
       || colTest(this.state.location, ['black', 'black', 'black', 'black'])
-      || leftDiagTest(this.state.location, ['black', 'black', 'black', 'black'])) {
+      || leftDiagTest(this.state.location, ['black', 'black', 'black', 'black'])
+      || rightDiagTest(this.state.location, ['black', 'black', 'black', 'black'])) {
       this.setState({ winnerFound: true, winner: 'black' })
     }
 
     if (rowTest(this.state.location, ['red', 'red', 'red', 'red'])
       || colTest(this.state.location, ['red', 'red', 'red', 'red'])
-      || leftDiagTest(this.state.location, ['red', 'red', 'red', 'red'])) {
+      || leftDiagTest(this.state.location, ['red', 'red', 'red', 'red'])
+      || rightDiagTest(this.state.location, ['red', 'red', 'red', 'red'])) {
       this.setState({ winnerFound: true, winner: 'red' })
     }
   }
