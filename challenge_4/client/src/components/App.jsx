@@ -21,7 +21,20 @@ class App extends Component {
       winnerFound: false,
       winner: ''
     };
+    this.refreshHandler = this.refreshHandler.bind(this);
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  refreshHandler(e) {
+    e.preventDefault();
+
+    this.setState(prevState => {
+      return {
+        location: new Array(6).fill(new Array(7).fill('')),
+        winnerFound: false,
+        winner: ''
+      }
+    })
   }
 
   handleClick(e) {
@@ -147,7 +160,7 @@ class App extends Component {
       }
     }
 
-    console.log(this.state.location)
+    // console.log(this.state.location)
     if (rowTest(this.state.location, ['black', 'black', 'black', 'black'])
       || colTest(this.state.location, ['black', 'black', 'black', 'black'])
       || leftDiagTest(this.state.location, ['black', 'black', 'black', 'black'])) {
@@ -164,7 +177,6 @@ class App extends Component {
   render() {
 
     return (
-
       <div className="container">
 
         <h1 className="display-4 mt-3 text-center text-info">CONNECT FOUR</h1>
@@ -228,7 +240,7 @@ class App extends Component {
           </tbody>
         </table>
         <div>{this.state.winnerFound && <h1>The winner is {this.state.winner}!!!</h1>}</div>
-        <div>{this.state.winnerFound && <Button>New Game ?</Button>}</div>
+        <div onClick={this.refreshHandler}>{this.state.winnerFound && <Button>New Game ?</Button>}</div>
       </div>
 
 
