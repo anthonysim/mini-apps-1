@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Board from './Board.jsx';
 import { Button } from 'react-bootstrap';
-import { one, two, three, six } from '../../../helpers/selectors';
 import '../styles.css'
+import colTest from '../../../helpers/colTest.js';
+import rowTest from '../../../helpers/rowTest.js';
 
 class App extends Component {
   constructor(props) {
@@ -16,15 +16,15 @@ class App extends Component {
         ['', '', '', '', '', '', ''],
         ['', '', '', '', '', '', ''],
       ],
-      playerTurn: true
+      playerTurn: true,
+      winnerFound: false,
+      winner: ''
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
     e.preventDefault();
-
-    // let x = e.target.dataset.x;
     let y = e.target.dataset.y;
 
     if (y === '0') {
@@ -147,10 +147,19 @@ class App extends Component {
     }
 
     console.log(this.state.location)
+    if (rowTest(this.state.location, ['black', 'black', 'black', 'black'])) {
+      this.setState({ winnerFound: true, winner: 'black' })
+    }
+
+    if (rowTest(this.state.location, ['red', 'red', 'red', 'red'])) {
+      this.setState({ winnerFound: true, winner: 'red' })
+    }
   }
 
   render() {
+
     return (
+
       <div className="container">
 
         <h1 className="display-4 mt-3 text-center text-info">CONNECT FOUR</h1>
@@ -213,8 +222,11 @@ class App extends Component {
             </tr>
           </tbody>
         </table>
-
+        <div>{this.state.winnerFound && <h1>The winner is {this.state.winner}!!!</h1>}</div>
+        <div>{this.state.winnerFound && <Button>New Game ?</Button>}</div>
       </div>
+
+
     );
   }
 }

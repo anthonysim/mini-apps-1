@@ -5,7 +5,7 @@ const rowTest = function (table, test) {
       let slicedArr = row.slice(i, 4 + i);
 
       // replace x, x, x, x with the test for winner in state
-      if (JSON.stringify(["X", "X", "X", "X"]) === JSON.stringify(slicedArr)) {
+      if (JSON.stringify(test) === JSON.stringify(slicedArr)) {
         return true;
       }
     }
@@ -13,4 +13,4 @@ const rowTest = function (table, test) {
   return false;
 }
 
-// console.log(rowTest(board))
+export default rowTest;
