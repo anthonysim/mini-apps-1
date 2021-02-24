@@ -4,6 +4,7 @@ import '../styles.css'
 import colTest from '../../../helpers/colTest.js';
 import rowTest from '../../../helpers/rowTest.js';
 import leftDiagTest from '../../../helpers/leftDiagTest.js';
+import rightDiagTest from '../../../helpers/rightDiagTest.js';
 
 class App extends Component {
   constructor(props) {
