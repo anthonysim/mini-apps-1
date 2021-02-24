@@ -30,7 +30,14 @@ class App extends Component {
 
     this.setState(prevState => {
       return {
-        location: new Array(6).fill(new Array(7).fill('')),
+        location: [
+          ['', '', '', '', '', '', ''],
+          ['', '', '', '', '', '', ''],
+          ['', '', '', '', '', '', ''],
+          ['', '', '', '', '', '', ''],
+          ['', '', '', '', '', '', ''],
+          ['', '', '', '', '', '', ''],
+        ],
         winnerFound: false,
         winner: ''
       }
